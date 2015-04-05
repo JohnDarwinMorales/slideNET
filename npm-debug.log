@@ -5,82 +5,79 @@
 1 verbose cli   'bowercomponents' ]
 2 info using npm@1.4.21
 3 info using node@v0.10.25
-4 verbose config Skipping project config: /home/jdmorales/.npmrc. (matches userconfig)
-5 verbose cache add [ 'bowercomponents', null ]
-6 verbose cache add name=undefined spec="bowercomponents" args=["bowercomponents",null]
-7 verbose parsed url { protocol: null,
-7 verbose parsed url   slashes: null,
-7 verbose parsed url   auth: null,
-7 verbose parsed url   host: null,
-7 verbose parsed url   port: null,
-7 verbose parsed url   hostname: null,
-7 verbose parsed url   hash: null,
-7 verbose parsed url   search: null,
-7 verbose parsed url   query: null,
-7 verbose parsed url   pathname: 'bowercomponents',
-7 verbose parsed url   path: 'bowercomponents',
-7 verbose parsed url   href: 'bowercomponents' }
-8 silly lockFile 5f83a8f6-bowercomponents bowercomponents
-9 verbose lock bowercomponents /home/jdmorales/.npm/5f83a8f6-bowercomponents.lock
+4 verbose cache add [ 'bowercomponents', null ]
+5 verbose cache add name=undefined spec="bowercomponents" args=["bowercomponents",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'bowercomponents',
+6 verbose parsed url   path: 'bowercomponents',
+6 verbose parsed url   href: 'bowercomponents' }
+7 silly lockFile 5f83a8f6-bowercomponents bowercomponents
+8 verbose lock bowercomponents /home/jdmorales/.npm/5f83a8f6-bowercomponents.lock
+9 silly lockFile 5f83a8f6-bowercomponents bowercomponents
 10 silly lockFile 5f83a8f6-bowercomponents bowercomponents
-11 silly lockFile 5f83a8f6-bowercomponents bowercomponents
-12 verbose addNamed [ 'bowercomponents', '' ]
-13 verbose addNamed [ null, '*' ]
-14 silly lockFile 3707cdc6-bowercomponents bowercomponents@
-15 verbose lock bowercomponents@ /home/jdmorales/.npm/3707cdc6-bowercomponents.lock
-16 silly addNameRange { name: 'bowercomponents', range: '*', hasData: false }
-17 verbose request where is /bowercomponents
-18 verbose request registry https://registry.npmjs.org/
-19 verbose request id 5cb1c9965be1f7c6
-20 verbose url raw /bowercomponents
-21 verbose url resolving [ 'https://registry.npmjs.org/', './bowercomponents' ]
-22 verbose url resolved https://registry.npmjs.org/bowercomponents
-23 verbose request where is https://registry.npmjs.org/bowercomponents
-24 info trying registry request attempt 1 at 02:03:20
-25 http GET https://registry.npmjs.org/bowercomponents
-26 http 404 https://registry.npmjs.org/bowercomponents
-27 verbose headers { date: 'Sun, 05 Apr 2015 07:03:21 GMT',
-27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-27 verbose headers   'content-type': 'application/json',
-27 verbose headers   'cache-control': 'max-age=0',
-27 verbose headers   'content-length': '51',
-27 verbose headers   'accept-ranges': 'bytes',
-27 verbose headers   via: '1.1 varnish',
-27 verbose headers   age: '0',
-27 verbose headers   'x-served-by': 'cache-iad2123-IAD',
-27 verbose headers   'x-cache': 'MISS',
-27 verbose headers   'x-cache-hits': '0',
-27 verbose headers   'x-timer': 'S1428217401.449349,VS0,VE58',
-27 verbose headers   'keep-alive': 'timeout=10, max=50',
-27 verbose headers   connection: 'Keep-Alive' }
-28 silly registry.get cb [ 404,
-28 silly registry.get   { date: 'Sun, 05 Apr 2015 07:03:21 GMT',
-28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-28 silly registry.get     'content-type': 'application/json',
-28 silly registry.get     'cache-control': 'max-age=0',
-28 silly registry.get     'content-length': '51',
-28 silly registry.get     'accept-ranges': 'bytes',
-28 silly registry.get     via: '1.1 varnish',
-28 silly registry.get     age: '0',
-28 silly registry.get     'x-served-by': 'cache-iad2123-IAD',
-28 silly registry.get     'x-cache': 'MISS',
-28 silly registry.get     'x-cache-hits': '0',
-28 silly registry.get     'x-timer': 'S1428217401.449349,VS0,VE58',
-28 silly registry.get     'keep-alive': 'timeout=10, max=50',
-28 silly registry.get     connection: 'Keep-Alive' } ]
+11 verbose addNamed [ 'bowercomponents', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 3707cdc6-bowercomponents bowercomponents@
+14 verbose lock bowercomponents@ /home/jdmorales/.npm/3707cdc6-bowercomponents.lock
+15 silly addNameRange { name: 'bowercomponents', range: '*', hasData: false }
+16 verbose request where is /bowercomponents
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 750b63a934051262
+19 verbose url raw /bowercomponents
+20 verbose url resolving [ 'https://registry.npmjs.org/', './bowercomponents' ]
+21 verbose url resolved https://registry.npmjs.org/bowercomponents
+22 verbose request where is https://registry.npmjs.org/bowercomponents
+23 info trying registry request attempt 1 at 02:19:10
+24 http GET https://registry.npmjs.org/bowercomponents
+25 http 404 https://registry.npmjs.org/bowercomponents
+26 verbose headers { date: 'Sun, 05 Apr 2015 07:19:16 GMT',
+26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 verbose headers   'content-type': 'application/json',
+26 verbose headers   'cache-control': 'max-age=0',
+26 verbose headers   'content-length': '51',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   'x-served-by': 'cache-atl6224-ATL',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1428218356.544745,VS0,VE339',
+26 verbose headers   'keep-alive': 'timeout=10, max=50',
+26 verbose headers   connection: 'Keep-Alive' }
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Sun, 05 Apr 2015 07:19:16 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '51',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'x-served-by': 'cache-atl6224-ATL',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1428218356.544745,VS0,VE339',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile 3707cdc6-bowercomponents bowercomponents@
 29 silly lockFile 3707cdc6-bowercomponents bowercomponents@
-30 silly lockFile 3707cdc6-bowercomponents bowercomponents@
-31 error 404 404 Not Found: bowercomponents
-31 error 404
-31 error 404 'bowercomponents' is not in the npm registry.
-31 error 404 You should bug the author to publish it
-31 error 404
-31 error 404 Note that you can also install from a
-31 error 404 tarball, folder, or http url, or git url.
-32 error System Linux 3.16.0-23-generic
-33 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "bowercomponents"
-34 error cwd /home/jdmorales/Documentos/utp/Cliente Servidor/SlidesRemote
-35 error node -v v0.10.25
-36 error npm -v 1.4.21
-37 error code E404
-38 verbose exit [ 1, true ]
+30 error 404 404 Not Found: bowercomponents
+30 error 404
+30 error 404 'bowercomponents' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Linux 3.16.0-23-generic
+32 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "bowercomponents"
+33 error cwd /home/jdmorales/Documentos/utp/Cliente Servidor/SlidesRemote
+34 error node -v v0.10.25
+35 error npm -v 1.4.21
+36 error code E404
+37 verbose exit [ 1, true ]
