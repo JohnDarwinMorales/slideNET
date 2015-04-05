@@ -3,6 +3,8 @@ var url = require("url");
 var fs = require("fs");
 var path = require("path");
 var io = require('socket.io')();
+var eventHandlers_client= require('./eventHandlers_client');
+
 
 function iniciar(route,handle) {
     //process.env.PORT=process.argv[2] || 5555;
@@ -22,14 +24,13 @@ function iniciar(route,handle) {
         console.log("Server listening at", addr.address +":"+ addr.port);
     });
 
-    io.on('connection', function(socket){
-        socket.emit('message', {'message': 'hello world'});
-    });
+    /////////////////////////////////SOCKET.IO//////////////////////////////////////
 
+    var onSocketConnection=eventHandlers_client.onSocketConnection;
+    io.on('connection',onSocketConnection);
     io.listen(server);
 
-
-
+    ///////////////////////////////////////////////////////////////////////////////
 }
 
 exports.iniciar = iniciar;
