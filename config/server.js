@@ -5,8 +5,8 @@ var path = require("path");
 var io = require('socket.io')();
 
 function iniciar(route,handle) {
-    process.env.PORT=process.argv[2] || 5555;
-    process.env.IP= 'localhost';
+    //process.env.PORT=process.argv[2] || 5555;
+    //process.env.IP= 'localhost';
 
     function onRequest(request, response) {
         var pathname = url.parse(request.url).pathname;
