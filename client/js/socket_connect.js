@@ -1,5 +1,7 @@
 var socket = io.connect();
 
-socket.on('message', function(data){
-    console.log(data.message);
+socket.on('date', function(data){
+    console.log(data.date);
 });
+
+socket.emit('client_data', {'firtsMessage': 'asdasdas'});

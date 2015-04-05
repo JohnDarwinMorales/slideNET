@@ -6,7 +6,7 @@ var handle = {};
 handle["/"] = requestHandlers.iniciar;
 handle["/iniciar"] = requestHandlers.iniciar;
 handle["/js/socket_connect.js"] = requestHandlers.socket_connect;
-handle["/subir"] = requestHandlers.subir;
+handle["/js/mobilesDetect.js"] = requestHandlers.mobilesDetect;
 handle["error404"] = requestHandlers.error404;
 
 
