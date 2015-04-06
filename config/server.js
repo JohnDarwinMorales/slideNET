@@ -30,6 +30,7 @@ function iniciar(route,handle) {
     io.on('connection',onSocketConnection);
     io.listen(server);
 
+
     ///////////////////////////////////////////////////////////////////////////////
 }
 
