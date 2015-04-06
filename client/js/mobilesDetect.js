@@ -1,4 +1,4 @@
-var md = new MobileDetect(window.navigator.userAgent);
+//var md = new MobileDetect(window.navigator.userAgent);
 /*
 console.log( md.mobile() );
 console.log( md.phone() );
