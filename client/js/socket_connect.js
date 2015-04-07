@@ -56,15 +56,18 @@ angular.module('slideRemoteApp',[])
             //$scope.users = data.users;
             console.log(data.hello);
         });
-
+        
         ///var sockets = io.connect();
         //sockets.emit('connected', { hello:"world"});
         // mobile.isMobile()
+        
         socket.emit('connected', { hello:"world", isMobile:mobile.isMobile()});
-
+         
+        // $document.ready(function(){
+            //console.log(mobile.isMobile());
+            
+        //});
   
-
-
         //console.log("phone:"+md.phone()+"tablet:"+md.tablet());
         /*
          $document.ready(function(){

@@ -28,8 +28,9 @@ function onSocketConnection(socket){
     socket.on('connected', function(msg,id){
          //console.log(msg);
          //console.log(id);
-        socket.emit('init',msg);
-        //socket.broadcast.to(id).emit('init',msg)
+        //socket.emit('init',msg);
+        //console.log(msg.isMobile);
+        socket.broadcast.to(id).emit('init',msg);
         //socket.emit('init',{hello: new Date().getSeconds()});
 
 

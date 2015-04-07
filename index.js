@@ -7,6 +7,7 @@ handle["/"] = requestHandlers.iniciar;
 handle["/iniciar"] = requestHandlers.iniciar;
 handle["/js/socket_connect.js"] = requestHandlers.socket_connect;
 handle["/js/mobilesDetect.js"] = requestHandlers.mobilesDetect;
+handle["/css/stylesheet/mean_style_client.css"] = requestHandlers.stylesheets;
 handle["error404"] = requestHandlers.error404;
 
 
