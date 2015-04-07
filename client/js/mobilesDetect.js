@@ -1,14 +1,16 @@
-var md = new MobileDetect(window.navigator.userAgent);
-
+//var md = new MobileDetect(window.navigator.userAgent);
+/*
 console.log( md.mobile() );
 console.log( md.phone() );
 console.log( md.tablet() );
+*/
 
 function load(){
     var idMob= document.getElementById('mob');
     idMob.innerText="phone:"+md.phone()+"tablet:"+md.tablet();
-   // alert("sadadasdas");
+    //alert("sadadasdas");
 }
+
 
 //idMobile.innerText= "phone:"+md.phone()+"tablet:"+md.tablet();
 
