@@ -53,7 +53,7 @@
                    <div ng-switch-when="true"  class="type-device col-xs-8 type-device col-xs-offset-2" ng-hide="!isMobile">
                       <form name="formDevice">
                        <input type="text" ng-readonly="user.correct"  placeholder="enter your nickName" ng-model="user.nickname" ng-model-options="{ getterSetter: true }" class="form-group form-control" required>
-                       <input type="text" ng-readonly="user.correct"  placeholder="enter your code" ng-model="user.codeMobile" ng-model-options="{ getterSetter: true }" class="form-group form-control" required>
+                       <input type="text" ng-readonly="user.correct"  placeholder="enter your code" ng-model="user.codeMobile" ng-model-options="{ getterSetter: true }" class="form-group form-control">
                        <button type="submit" ng-model="device.send" class="btn btn-primary form-group" ng-click="sendCode()" > {{messageButtonSend}} </button>
                        <div class="send_message form-group"><h5>{{user.send_message}}</h5></div>
                       </form>
@@ -63,10 +63,16 @@
                       <div class="codeMobile">{{user.name()}}</div>
                    </div>
                </div>
-               
+
                
            </div>
      </div>
+               <div class="content-user-connected row">
+                   <label> Users Conected</label>
+                   <div class="content">
+                     <div user-connected ng-repeat="client in clients"  name="{{client.name}}"></div>
+                   </div>
+               </div>
   </div>
 </div>
 </body>

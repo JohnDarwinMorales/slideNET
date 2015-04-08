@@ -56,6 +56,19 @@ angular.module('slideRemoteApp',['ngTouch'])
 
         };
     })
+    
+    .directive('userConnected',function(){
+        return{
+            restrict:'AE',
+            scope:{
+              name:'@'  
+            },
+            template:'<i class="fa fa-user"></i><span>{{name}}</span>',
+            link:function($scope,element,att){
+                console.log($scope);
+            }
+        }
+    })
 
 
     .controller('appCtrlSocket',function($scope,mobile,socket){
@@ -67,8 +80,6 @@ angular.module('slideRemoteApp',['ngTouch'])
         $scope.messageForDevice= ( $scope.isMobile )? 'Choose your Mobile device code' : 'Enter Mobile device code';
         $scope.messageButtonSend= 'Send';
         
-    
-        
         $scope.user = {
             nickname: '',
             codeMobile:'',
@@ -76,20 +87,18 @@ angular.module('slideRemoteApp',['ngTouch'])
             send_message:'',
             correct:false,
         };
+        
+        $scope.clients =[{ name:'john'},{ name:'julian'},{ name:'john'},{ name:'carlos'},{ name:'pedro'}];
 
         socket.on('init', function (msg) {
+           if($scope.isMobile){
             $scope.user.correct=msg.correct;
             $scope.messageButtonSend = 'Start to Slide';
-            
-            //$scope.$apply(function(){
-                  $scope.user.send_message=msg.send_message;
-           // });
-         
-            console.log(msg);
+            $scope.user.send_message=msg.send_message;
+           }
         });
         
         $scope.sendCode=function(){
-        
         if($scope.user.nickname!='' && $scope.user.codeMobile !="" ){
             if(!$scope.user.correct){
                  socket.emit('connected',$scope.user,function(){ });

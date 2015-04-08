@@ -608,40 +608,40 @@ body {
   background-color: #C8C8C8;
 }
 
-/* line 21, ../sass/mean_style_client.scss */
+/* line 20, ../sass/mean_style_client.scss */
 .fa:hover {
   cursor: pointer;
 }
 
-/* line 26, ../sass/mean_style_client.scss */
+/* line 25, ../sass/mean_style_client.scss */
 .icon_slideRemote {
   height: 1em;
   font-size: 4em;
 }
 
-/* line 31, ../sass/mean_style_client.scss */
+/* line 30, ../sass/mean_style_client.scss */
 .main-wrapper {
   min-height: 100%;
 }
-/* line 34, ../sass/mean_style_client.scss */
+/* line 33, ../sass/mean_style_client.scss */
 .main-wrapper .docs-head {
   box-shadow: 0px 0px 1.3em black;
   background-color: #323232;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
   text-align: center;
   color: white;
 }
-/* line 43, ../sass/mean_style_client.scss */
+/* line 42, ../sass/mean_style_client.scss */
 .main-wrapper .docs-body {
   position: relative;
-  height: 80vh;
+  height: 90vh;
 }
-/* line 48, ../sass/mean_style_client.scss */
+/* line 47, ../sass/mean_style_client.scss */
 .main-wrapper .docs-body .text-capitalize {
   font-weight: bold;
 }
-/* line 52, ../sass/mean_style_client.scss */
+/* line 51, ../sass/mean_style_client.scss */
 .main-wrapper .docs-body .content_view {
   background-color: rgba(255, 255, 255, 0.2);
   margin-top: 6vh;
@@ -650,16 +650,51 @@ body {
   padding-bottom: 1vh;
 }
 
-/* line 63, ../sass/mean_style_client.scss */
+/* line 62, ../sass/mean_style_client.scss */
 .text-message {
   text-align: center;
 }
-/* line 72, ../sass/mean_style_client.scss */
+/* line 71, ../sass/mean_style_client.scss */
 .text-message .type-device .fa {
   font-size: 6em;
   display: inline;
 }
-/* line 76, ../sass/mean_style_client.scss */
+/* line 75, ../sass/mean_style_client.scss */
 .text-message .type-device .fa:hover {
+  opacity: 0.8;
+}
+
+/* line 83, ../sass/mean_style_client.scss */
+.content-user-connected {
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.13);
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  width: 100%;
+  z-index: 100;
+}
+/* line 92, ../sass/mean_style_client.scss */
+.content-user-connected label {
+  text-align: center;
+  width: 100%;
+  font-size: 1.2em;
+}
+/* line 98, ../sass/mean_style_client.scss */
+.content-user-connected .content {
+  width: 100%;
+}
+/* line 100, ../sass/mean_style_client.scss */
+.content-user-connected .content > div {
+  float: left;
+  text-align: center;
+}
+/* line 103, ../sass/mean_style_client.scss */
+.content-user-connected .content > div i {
+  width: 100%;
+  font-size: 3.8em;
+}
+/* line 106, ../sass/mean_style_client.scss */
+.content-user-connected .content > div i:hover {
   opacity: 0.8;
 }
