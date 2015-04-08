@@ -27,9 +27,15 @@ function mobilesDetect(response){
     getData(response,'client/js','mobilesDetect.js', "application/javascript");
 }
 
+function angularTouch(response){
+    getData(response,'node_modules/angular-touch','angular-touch.js', "application/javascript");
+}
+
+
 function stylesheets(response){
   getData(response,'client/css/stylesheets','mean_style_client.css', "text/css");
 }
+
 
 function error404(response,pathname){
     console.log(" error 404 no found path"+ pathname);
@@ -42,5 +48,6 @@ function error404(response,pathname){
 exports.iniciar = iniciar;
 exports.socket_connect=socket_connect;
 exports.mobilesDetect=mobilesDetect;
+exports.angularTouch=angularTouch;
 exports.stylesheets=stylesheets;
 exports.error404 = error404;
