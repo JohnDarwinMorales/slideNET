@@ -1,7 +1,5 @@
-//var client= require('./clients_model');
-function roomClient(){
-    this.roomsClients=['ASAsA'];
-}
+var client= require('./clients_model');
+ var roomClient= new client.roomClient();
 
 
 var disconnect_client=function(data){
@@ -43,55 +41,38 @@ var connect_client=function(msg,id){
 function onSocketConnection(socket){
 
 
+
     socket.on('connected', function(msg,id){
-        console.log(msg);
+        msg.correct =true;
 
         if(msg.typedevice == 'mobile'){
-            msg.correct =true;
             msg.send_message = "Waiting for connection of some Desktop.";
+            msg.correct =true;
 
-
-
-
-            //console.log(roomClient.roomsClients);
-
-/*
-            if(!client.roomClient.existRoom(msg.codeMobile)){
+            if(!roomClient.existRoom(msg.codeMobile)){
                 var room = new client.room(msg.codeMobile,msg.nickname);
-                client.roomClient.newRoom(room);
+                roomClient.newRoom(room);
+                console.log(room);
             }else{
+                msg.correct =false;
                 msg.send_message = " change code.";
             }
-*/
-        }else{
-            //msg.correct =true;
-            //msg.send_message = "Waiting for connection of some Desktop.";
+        }else {
+            if (roomClient.existRoom(msg.codeMobile)) {
+                var room = roomClient.getRoom(msg.codeMobile);
+                var user= new client.client(msg.nickname,socket.id,msg.codeMobile);
+                room.clients.push(user);
+                msg.send_message = "";
+            } else {
+                msg.correct =false;
+                msg.send_message = " No exist this code.";
+            }
         }
 
-
-        //console.log(msg);
-        //console.log(id);
-        //socket.emit('init',msg);
-        //console.log(msg.isMobile);
         socket.emit('init',msg);
-        //socket.emit('init',{hello: new Date().getSeconds()});
-        /*
-         socket.on('init',function(msg){
-         socket.emit()
-         })
-         */
-
-
-        //socket.broadcast.to(id).emit('init', {hello: new Date().getSeconds()});
-        //});
 
     });
 
-    // socket.on('disconnect',);
-
-    setInterval(function(){
-        // socket.emit('init',{hello:new Date().getSeconds()});
-    },1000);
 
 }
 

@@ -20,35 +20,45 @@ function room(roomName,creator){
 
 
 function roomClient(){
-    this.roomsClients=['ASAsA'];
+    this.roomsClients=[];
 }
 
+roomClient.prototype.newRoom= function (room) {
+    this.roomsClients.push(room);
+};
+
+
+roomClient.prototype.getRoomsClients=function(){
+    return roomsClients;
+};
+
 roomClient.prototype.existRoom = function(nameRoom){
-    console.log(this.roomsClients);
-    //return false;
-    /*
-     if(roomsClients.length !=0 ){
-     roomsClients.forEach(function(element,index, array){
-     if(element.roomName==nameRoom){
-     return true;
-     }
-     });
-     }else{
-     return false;
-     }
-     */
-    /*
-    this.newRoom= function (room) {
-        roomsClients.push(room);
-        console.log(room);
-    };
 
-    //this.existRoom=
+    if(this.roomsClients.length !=0 ){
+        var i=0;
+        while(i < this.roomsClients.length){
+            if(this.roomsClients[i].roomName === nameRoom){
+                return true;
+            }
+            i++;
+        }
+    }
 
-    this.getRoomsClients=function(){
-        return roomsClients;
-    };
-    */
+    return false;
+};
+
+roomClient.prototype.getRoom = function(nameRoom){
+
+    if(this.roomsClients.length !=0 ){
+        var i=0;
+        while(i < this.roomsClients.length){
+            if(this.roomsClients[i].roomName === nameRoom){
+                return this.roomsClients[i];
+            }
+            i++;
+        }
+    }
+
 };
 
 
