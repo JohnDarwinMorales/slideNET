@@ -6,13 +6,15 @@
 
 
 
-function client(name,id,roomsClient){
+function client(name,id,roomClient){
     this.name=name;
     this.id=id;
-    this.roomsClient=roomsClient;
+    this.roomClient=roomClient;
 }
 
-function room(roomName,creator){
+function room(roomName,id,socket,creator){
+    this.idRoom=id;
+    this.socket=socket;
     this.roomName=roomName;
     this.clients=[];
     this.creator=creator;
@@ -28,8 +30,25 @@ roomClient.prototype.newRoom= function (room) {
 };
 
 
+roomClient.prototype.deleteRoom= function (room) {
+    var indexRoom=this.getRoomById(room.roomName);
+    this.roomsClients.splice(indexRoom[0].indexRoom,1)
+};
+
+roomClient.prototype.deleteClient= function (indexRoom,indexClient) {
+    var room=this.roomsClients[indexRoom];
+    
+    if(room.clients.length>0){
+        var clients=room.clients;
+        clients.splice(indexClient,1);
+    }
+
+};
+
+
+
 roomClient.prototype.getRoomsClients=function(){
-    return roomsClients;
+    return this.roomsClients;
 };
 
 roomClient.prototype.existRoom = function(nameRoom){
@@ -43,7 +62,6 @@ roomClient.prototype.existRoom = function(nameRoom){
             i++;
         }
     }
-
     return false;
 };
 
@@ -58,8 +76,44 @@ roomClient.prototype.getRoom = function(nameRoom){
             i++;
         }
     }
+};
+
+roomClient.prototype.getRoomById = function(idRoom){
+
+    if(this.roomsClients.length !=0 ){
+        var i=0;
+        while(i < this.roomsClients.length){
+            if(this.roomsClients[i].idRoom === idRoom){
+                return [{indexRoom:i, roomsClients: this.roomsClients[i]}];
+            }
+            i++;
+        }
+    }
 
 };
+
+
+
+roomClient.prototype.getClientRoom = function(idClient){
+
+    if(this.roomsClients.length !=0 ){
+        var i=0;
+        while(i < this.roomsClients.length){
+             var room_i=this.roomsClients[i];
+              for(var j=0; j<room_i.clients.length; j++ ){
+                  var client_j=room_i.clients[j];
+                  
+                  if(client_j.id==idClient){
+                     return {client:client_j,indexRoom: i , indexClient: j};
+                  }
+              }
+         i++;
+        }
+    }
+    return -1;
+};
+
+
 
 
 exports.client=client;

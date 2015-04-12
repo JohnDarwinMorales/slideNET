@@ -19,6 +19,7 @@ angular.module('slideRemoteApp',['ngTouch'])
             }else{
                 return false;
             }
+            
         }
 
         return {
@@ -28,6 +29,7 @@ angular.module('slideRemoteApp',['ngTouch'])
     })
 
     .factory('socket', function ($rootScope) {
+        
         var socket = io.connect();
         return {
 
@@ -87,32 +89,60 @@ angular.module('slideRemoteApp',['ngTouch'])
             correct:false,
         };
 
-        $scope.clients =[{ name:'john'},{ name:'julian'},{ name:'john'},{ name:'carlos'},{ name:'pedro'}];
+        $scope.clients =[];
+        
+        
+        
+        ////////////////////////////////////////////HANDLER SOCKETS///////////////////////////////////////////////////////
 
         socket.on('init', function (msg) {
             $scope.user.correct=msg.correct;
             $scope.user.send_message=msg.send_message;
-            console.log('sadas');
-
-            if($scope.isMobile){
-                $scope.messageButtonSend = 'Start to Slide';
-            }else{
-                $scope.messageButtonSend = 'Join to Slide';
-            }
-
+            
+             if($scope.isMobile){
+                if(msg.correct){
+                    $scope.messageButtonSend = 'Start to Slide';
+                   }
+                }else{
+                  if(msg.correct){
+                      $scope.messageButtonSend = 'Join to Slide';
+                      $scope.clients=msg.clients;
+                   }
+                }
         });
-
+        
+        
+        socket.on('newClient',function(msg){
+               var newclient ={name: msg.nickname};
+               $scope.clients.push(newclient);
+        });
+        
+        socket.on('disconnect_user',function(msg) {
+            console.log("sasasasas");
+            console.log(msg);
+        });
+        
+        
         $scope.sendCode=function(){
             if($scope.user.nickname!='' && $scope.user.codeMobile !="" ){
                 if(!$scope.user.correct){
                     socket.emit('connected',$scope.user,function(){ });
                 }else{
-                    console.log('start to Slide');
+                    
+                    if($scope.user.typedevice == 'mobil'){
+                        
+                        console.log('start to Slide');
+                    }else{
+                        
+                    }
+                    
                 }
             }else{
                 console.log('error');
             }
 
         }
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     });

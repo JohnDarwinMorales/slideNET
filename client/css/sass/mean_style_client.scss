@@ -1,3 +1,4 @@
+//@import "../animate-sass/animate";
 @import "_normalize";
 @import "compass";
 
@@ -97,7 +98,10 @@ body{
 
   .content{
     width:100%;
-    &>div{
+    &>div{ //user como tal
+    
+     
+      
       float:left;
       text-align: center;
       i{
@@ -113,6 +117,5 @@ body{
       }
     }
   }
-
 
 }
