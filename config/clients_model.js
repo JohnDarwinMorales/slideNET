@@ -12,13 +12,19 @@ function client(name,id,roomClient){
     this.roomClient=roomClient;
 }
 
+function slide(title){
+   this.tilte=title;
+   this.currentIndex=0;
+   this.startToSlide=false;
+}
+
 function room(roomName,id,socket,creator){
     this.idRoom=id;
     this.socket=socket;
     this.roomName=roomName;
     this.clients=[];
     this.creator=creator;
-    this.state={startToSlide:false,currentIndex:0};
+    this.stateSlide=new slide("nodeJS");
 }
 
 

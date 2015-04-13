@@ -23,14 +23,11 @@ function connectGuestUser(socket, msg){
        }
         
         
-     if(room.state.startToSlide){
-        // message.startToSlide=true;
-         //msg.currentIndex=room.state.currentIndex;
-         socket.emit('init_slideToStart',room.state); 
-      }
+     if(room.stateSlide.startToSlide){
+         socket.emit('init_slideToStart',room.stateSlide); 
+       }
       
       return msg;
-        
 }
 
 function connectExponentUser(socket, msg){
@@ -79,10 +76,10 @@ var disconnect_client=function(msg){
 
 var init_startToSlide=function(msg){
    var room = roomClient.getRoom(msg.codeMobile);
-   var stateRoom=room.state;
-   stateRoom.startToSlide=true;
+   var stateSlide=room.stateSlide;
+   stateSlide.startToSlide=true;
    if(msg.typedevice=='mobile'){
-        this.broadcast.to(msg.codeMobile).emit('init_slideToStart',stateRoom);
+        this.broadcast.to(msg.codeMobile).emit('init_slideToStart',stateSlide);
    }else{
          
    }
@@ -109,6 +106,8 @@ var connect_client=function(msg){
 function onSocketConnection(socket){
   socket.on('connected',connect_client);
   socket.on('initslide',init_startToSlide);
+ 
+  
 }
 
 

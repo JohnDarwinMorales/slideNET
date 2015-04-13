@@ -54,6 +54,10 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
                         }
                     });
                 })
+            },
+            
+            getSocket:function(){
+              return  socket.id;
             }
 
         };
@@ -67,7 +71,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
             },
             template:'<i class="fa fa-user"></i><span>{{name}}</span>',
             link:function($scope,element,att){
-                console.log($scope);
+               // console.log($scope);
             }
         }
     })
@@ -83,7 +87,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
                 
                   .when('/templates/slides/', {
                     templateUrl: '/templates/slide.html',
-                   // controller: 'ChapterCtrl',
+                    controller: 'CtrlSlide',
                    // controllerAs: 'chapter'
                   });
                 
@@ -92,7 +96,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
 
 
     .controller('appCtrlSocket',function($scope,mobile,socket,$route, $routeParams, $location){
-        
+         console.log(socket.getSocket());
         $scope.typedevice=mobile.typeDevice;
         $scope.isMobile=mobile.getIsMobile();
         $scope.codeMobile="";
@@ -109,6 +113,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
             typedevice: mobile.typeDevice,
             send_message:'',
             startToSlide:true,
+            stateSlide:'',
             correct:false
         };
 
@@ -137,8 +142,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
         
         socket.on('init_slideToStart',function(msg){
             if(msg.startToSlide){
-               //$scope.slide.currentIndex=msg.currentIndex;
-               console.log(msg.currentIndex);
+               $scope.user.stateSlide=msg;
                window.location ="/#/templates/slides/";
             }
         });
@@ -149,15 +153,13 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
                $scope.clients.push(newclient);
         });
         
-        socket.on('disconnect_user',function(msg) {
+        socket.on('disconnect_user',function(msg) {  // Esta acción la emite el UserExponent para todos los usersGuests (broadcast)
            $scope.clients.splice(msg.indexClient,1);
         });
         
-        socket.on('disconnect_client',function(msg) {
+        socket.on('disconnect_client',function(msg) { // Esta acción la emite el UserExponent para el mismo (emit)
            $scope.clients.splice(msg.indexClient,1);
         });
-        
-        
         
         
         $scope.sendCode=function(){
@@ -168,11 +170,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
                     if($scope.isMobile && $scope.user.correct ){
                        socket.emit('initslide',$scope.user);
                        window.location ="/#/templates/slides/";
-                    }else if(!$scope.isMobile && $scope.user.correct ) {
-                       socket.emit('joinToSlide',$scope.user);
-                       //console.log('start to Slide in Desktop');
                     }
-                    
                 }
             }else{
                 console.log('error');
@@ -182,4 +180,17 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    })
+    
+    
+    .controller('CtrlSlide',function($scope,socket){
+       //
+       $scope.user=$scope.$parent.user;
+
+       if($scope.user.correct){
+           console.log($scope.user);
+       }else{
+          window.location="/#/";
+       }
+       
     });
