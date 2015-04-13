@@ -19,6 +19,14 @@ function iniciar(response){
     getData(response,'client/templates','index.html', "text/html");
 }
 
+function view_login(response){
+  getData(response,'client/templates','log_in.html', "text/html");
+}
+
+function view_slide(response){
+  getData(response,'client/templates','slide.html', "text/html");
+}
+
 function socket_connect(response){
     getData(response,'client/js','socket_connect.js', "application/javascript");
 }
@@ -31,10 +39,17 @@ function angularTouch(response){
     getData(response,'node_modules/angular-touch','angular-touch.js', "application/javascript");
 }
 
+function angularRoute(response){
+    getData(response,'node_modules/angular-route','angular-route.js', "application/javascript");
+}
+
 
 function stylesheets(response){
   getData(response,'client/css/stylesheets','mean_style_client.css', "text/css");
 }
+
+
+
 
 
 function error404(response,pathname){
@@ -50,4 +65,7 @@ exports.socket_connect=socket_connect;
 exports.mobilesDetect=mobilesDetect;
 exports.angularTouch=angularTouch;
 exports.stylesheets=stylesheets;
+exports.angularRoute=angularRoute;
+exports.view_login=view_login;
+exports.view_slide=view_slide;
 exports.error404 = error404;

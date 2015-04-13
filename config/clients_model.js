@@ -18,6 +18,7 @@ function room(roomName,id,socket,creator){
     this.roomName=roomName;
     this.clients=[];
     this.creator=creator;
+    this.state={startToSlide:false,currentIndex:0};
 }
 
 

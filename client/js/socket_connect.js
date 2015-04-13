@@ -1,5 +1,5 @@
 
-angular.module('slideRemoteApp',['ngTouch'])
+angular.module('slideRemoteApp',['ngTouch','ngRoute'])
 
     .factory('mobile',function(){
         var md = new MobileDetect(window.navigator.userAgent);
@@ -71,22 +71,45 @@ angular.module('slideRemoteApp',['ngTouch'])
             }
         }
     })
+    
+        .config(['$routeProvider', '$locationProvider',
+              function($routeProvider, $locationProvider) {
+                $routeProvider
+                  .when('/', {
+                    templateUrl: '/templates/log_in.html',
+                    //controller: 'BookCtrl',
+                    //controllerAs: 'book'
+                  })
+                
+                  .when('/templates/slides/', {
+                    templateUrl: '/templates/slide.html',
+                   // controller: 'ChapterCtrl',
+                   // controllerAs: 'chapter'
+                  });
+                
+                $locationProvider.html5Mode(false);
+        }])
 
 
-    .controller('appCtrlSocket',function($scope,mobile,socket){
+    .controller('appCtrlSocket',function($scope,mobile,socket,$route, $routeParams, $location){
+        
         $scope.typedevice=mobile.typeDevice;
         $scope.isMobile=mobile.getIsMobile();
         $scope.codeMobile="";
+        
+        //$scope.link_button="/#/";
 
         $scope.messageForDevice= ( $scope.isMobile )? 'Choose your Mobile device code' : 'Enter Mobile device code';
         $scope.messageButtonSend=  ( !$scope.isMobile )? 'Save Code' :'Send';
+      
 
         $scope.user = {
             nickname: '',
             codeMobile:'',
             typedevice: mobile.typeDevice,
             send_message:'',
-            correct:false,
+            startToSlide:true,
+            correct:false
         };
 
         $scope.clients =[];
@@ -105,10 +128,19 @@ angular.module('slideRemoteApp',['ngTouch'])
                    }
                 }else{
                   if(msg.correct){
-                      $scope.messageButtonSend = 'Join to Slide';
+                      $scope.user.startToSlide=msg.startToSlide;
+                      $scope.user.send_message="Waiting to "+ msg.creator+ " to start...";
                       $scope.clients=msg.clients;
                    }
                 }
+        });
+        
+        socket.on('init_slideToStart',function(msg){
+            if(msg.startToSlide){
+               //$scope.slide.currentIndex=msg.currentIndex;
+               console.log(msg.currentIndex);
+               window.location ="/#/templates/slides/";
+            }
         });
         
         
@@ -118,22 +150,27 @@ angular.module('slideRemoteApp',['ngTouch'])
         });
         
         socket.on('disconnect_user',function(msg) {
-            console.log("sasasasas");
-            console.log(msg);
+           $scope.clients.splice(msg.indexClient,1);
         });
+        
+        socket.on('disconnect_client',function(msg) {
+           $scope.clients.splice(msg.indexClient,1);
+        });
+        
+        
         
         
         $scope.sendCode=function(){
             if($scope.user.nickname!='' && $scope.user.codeMobile !="" ){
                 if(!$scope.user.correct){
-                    socket.emit('connected',$scope.user,function(){ });
+                    socket.emit('connected',$scope.user);
                 }else{
-                    
-                    if($scope.user.typedevice == 'mobil'){
-                        
-                        console.log('start to Slide');
-                    }else{
-                        
+                    if($scope.isMobile && $scope.user.correct ){
+                       socket.emit('initslide',$scope.user);
+                       window.location ="/#/templates/slides/";
+                    }else if(!$scope.isMobile && $scope.user.correct ) {
+                       socket.emit('joinToSlide',$scope.user);
+                       //console.log('start to Slide in Desktop');
                     }
                     
                 }

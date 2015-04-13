@@ -14,16 +14,17 @@
 
     <link rel="stylesheet" href="../css/stylesheet/mean_style_client.css" type="text/css" />
     <script type="text/javascript" src="/angular-touch/angular-touch.js"></script>
+    <script type="text/javascript" src="/angular-route/angular-route.js"></script>
     <script src="//cdn.jsdelivr.net/mobile-detect.js/1.0.0/mobile-detect.min.js"></script>
     <script src="../js/socket_connect.js"></script>
     <script src="../js/mobilesDetect.js"></script>
     <title>slideRemote</title>
 </head>
 
-<body ng-app="slideRemoteApp">
-<div  class="main-wrapper" ng-controller="appCtrlSocket">
+<body ng-app="slideRemoteApp" ng-controller="appCtrlSocket">
+<div  class="main-wrapper">
+    
     <div class="docs-head col-xs-12">
-
         <div class="icon_slideRemote col-xs-2 ">
             <i class="fa fa-leanpub"></i>
         </div>
@@ -33,41 +34,14 @@
         </div>
     </div>
 
-    <div class="docs-body col-xs-12">
-        <div class="col-sm-8 col-sm-offset-2 col-xs-offset-0 col-xs-12 content_view">
-            <div class="text-message col-sm-8 col-sm-offset-2 col-xs-offset-0 col-xs-12 ">
+    <div ng-view class="docs-body col-xs-12" ></div>
 
-                <div class="col-xs-12">
-                    <h2 class="text-capitalize">{{messageForDevice}}</h2>
-                </div>
-
-
-                <div class="type-devices row">
-                    <div class="type-device col-xs-12">
-                        <i class="fa fa-desktop" ng-hide="isMobile"></i>
-                        <i class="fa fa-mobile" ng-hide="!isMobile"></i>
-                    </div>
-                </div>
-
-
-                <div class="type-device col-xs-8 type-device col-xs-offset-2">
-                    <form name="formDevice">
-                        <input type="text" ng-readonly="user.correct"  placeholder="enter your nickName" ng-model="user.nickname" ng-model-options="{ getterSetter: true }" class="form-group form-control" required>
-                        <input type="text" ng-readonly="user.correct"  placeholder="enter code" ng-model="user.codeMobile" ng-model-options="{ getterSetter: true }" class="form-group form-control">
-                        <button type="submit" ng-model="device.send" class="btn btn-primary form-group" ng-click="sendCode()" > {{messageButtonSend}} </button>
-                        <div class="send_message form-group"><h5>{{user.send_message}}</h5></div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-        <div class="content-user-connected row">
-            <label> Users Conected</label>
-            <div class="content">
-                <div user-connected ng-repeat="client in clients"  name="{{client.name}}"></div>
-            </div>
+</div>
+    <div class="content-user-connected row">
+        <label> Users Conected</label>
+        <div class="content">
+            <div user-connected ng-repeat="client in clients"  name="{{client.name}}"></div>
         </div>
     </div>
-</div>
 </body>
 </html>
