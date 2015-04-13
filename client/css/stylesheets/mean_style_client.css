@@ -671,30 +671,32 @@ body {
   background-color: rgba(255, 255, 255, 0.13);
   width: 100%;
   z-index: 100;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
-/* line 92, ../sass/mean_style_client.scss */
+/* line 94, ../sass/mean_style_client.scss */
 .content-user-connected label {
   text-align: center;
   width: 100%;
   font-size: 1.2em;
 }
-/* line 98, ../sass/mean_style_client.scss */
+/* line 100, ../sass/mean_style_client.scss */
 .content-user-connected .content {
   width: 100%;
   padding-left: 1%;
   padding-right: 1%;
 }
-/* line 102, ../sass/mean_style_client.scss */
+/* line 104, ../sass/mean_style_client.scss */
 .content-user-connected .content > div {
   float: left;
   text-align: center;
 }
-/* line 108, ../sass/mean_style_client.scss */
+/* line 107, ../sass/mean_style_client.scss */
 .content-user-connected .content > div i {
   width: 100%;
   font-size: 3.8em;
 }
-/* line 111, ../sass/mean_style_client.scss */
+/* line 110, ../sass/mean_style_client.scss */
 .content-user-connected .content > div i:hover {
   opacity: 0.8;
 }

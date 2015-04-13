@@ -184,11 +184,21 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
     
     
     .controller('CtrlSlide',function($scope,socket){
-       //
+       // aca se puede manipular los sockets normalmente
        $scope.user=$scope.$parent.user;
+       $scope.isMobile=$scope.$parent.isMobile;
 
        if($scope.user.correct){
            console.log($scope.user);
+           
+           if($scope.isMobile){
+               
+               
+           }else{
+               
+           }
+           
+           
        }else{
           window.location="/#/";
        }

@@ -1,0 +1,9 @@
+<div ng-transclude class="content_slide"></div>
+
+<div class="nav">
+        <ul class="dots">
+            <li class="btn dot" ng-repeat="slide in list" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">
+                <span>{{$index+1}}</a>
+            </li>
+        </ul>
+</div>
