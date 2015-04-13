@@ -4,17 +4,6 @@ angular.module('appFormSlide',[])
 
         var list= $scope.list=angular.isDefined($attrs.listItems) ? $scope.$eval($attrs.listItems) : [] ;
 
-        $scope.$watch(function(){
-            return $scope.$eval($attrs.listItems);
-        },function(newVal){
-            //console.log(newVal, $attrs)
-            if(angular.isDefined($attrs.listItems)){
-                var list= $scope.list=angular.isDefined($attrs.listItems) ? $scope.$eval($attrs.listItems) : [] ;
-            }
-           // $scope.isCurrentParentItem=angular.isDefined($attrs.isCurrentParentItem) ? $scope.$eval($attrs.isCurrentParentItem) : false ;
-        });
-
-
         $scope.direction = 'left';
         $scope.currentIndex = 0;
 
@@ -47,87 +36,45 @@ angular.module('appFormSlide',[])
         this.addItem=function(item){
             list.push(item);
         };
-
     })
 
-    .directive('eonFormSlide',function($timeout){
+    .directive('formSlide',function($timeout){
         return{
             restrict:'EC',
             transclude:true,
-            scope:{},
+            scope:true,
             controller:'ctrlFormSlide',
-            scope:{
-                autoSlide:"@",
-                transition:"@",
-                time:'@',
-                transitionRand:'@transitionRand'
-            },
-            templateUrl:'/Frontend/js/directives/page/form-slide/form-slide.html',
+            template:
+            '<div ng-transclude class="content_slide"></div>'+
+            ' <div class="nav">'+
+               '<ul class="dots">'+
+                 '<li class="btn dot" ng-repeat="slide in list" ng-class="{active:isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index)">'+
+                  '<span>{{$index+1}}</a>'+
+                  '</li>'+     
+                '</ul>'+
+           '</div>',
             link:function(scope,iElement,attr,ctrl){
-                /*
-                 scope.getTime=(scope.time)? scope.$eval(scope.time) : 3000;
-                 scope.getTransitionRand=(scope.transitionRand)? scope.$eval(scope.transitionRand) : false;
-                 scope.overFlow=true;
-
-                 console.log(scope.list);
-
-
-
-                 var tick = function() {
-                 if(scope.$eval(scope.autoSlide)){
-                 $timeout(tick, scope.getTime);
-                 scope.prevSlide();
-                 }
-                 }
-                 $timeout(tick, scope.getTime);
-
-                 /*
-                 var setOverflow=function(){
-                 var visible= (scope.overFlow)? 'visible':'hidden';
-                 var element=angular.element(iElement[0].firstChild);
-                 element.addClass('no-overflow');
-                 console.log(element);
-                 }
-
-                 scope.$watch('overFlow', function() {
-                 setOverflow();
-                 });
-                 */
+                console.log(iElement);
             }
-
-
         }
     })
 
 
     .directive('itemForm', function() {
         return {
-            require: '^eonFormSlide',
+            require: '^formSlide',
             restrict: 'CE',
             transclude: true,
+            replace:true,
             scope: {
                 title: '@nameItem'
             },
             link: function(scope, element, attrs, tabsCtrl) {
                 tabsCtrl.addItem(scope);
-                //console.log(tabsCtrl);
+                console.log(tabsCtrl);
+                
             },
-            templateUrl:'/Frontend/js/directives/page/form-slide/item-form.html'
+            template:'<div ng-transclude ng-show="selected" ></div>'
         };
     })
 
-/*
- .directive('auxSlide'){
- return {
- require: '^eonFormSlide',
- restrict: 'CE',
- transclude: true,
- link: function(scope, element, attrs, tabsCtrl) {
- scope.currentItem=attrs.currentItemParent;
- scope.$watch('currentItem',function(newVal){
- console.log(newVal);
- });
- },
- };
- }
- */

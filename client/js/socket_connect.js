@@ -1,5 +1,5 @@
 
-angular.module('slideRemoteApp',['ngTouch','ngRoute'])
+angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
 
     .factory('mobile',function(){
         var md = new MobileDetect(window.navigator.userAgent);
@@ -96,7 +96,6 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
 
 
     .controller('appCtrlSocket',function($scope,mobile,socket,$route, $routeParams, $location){
-         console.log(socket.getSocket());
         $scope.typedevice=mobile.typeDevice;
         $scope.isMobile=mobile.getIsMobile();
         $scope.codeMobile="";
@@ -189,15 +188,13 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute'])
        $scope.isMobile=$scope.$parent.isMobile;
 
        if($scope.user.correct){
-           console.log($scope.user);
+          console.log($scope.user);
            
-           if($scope.isMobile){
+          if($scope.isMobile){
+             
+          }else{
                
-               
-           }else{
-               
-           }
-           
+          }
            
        }else{
           window.location="/#/";

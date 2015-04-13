@@ -35,6 +35,10 @@ function mobilesDetect(response){
     getData(response,'client/js','mobilesDetect.js', "application/javascript");
 }
 
+function formSlide(response){
+    getData(response,'client/js/form-slide','form-slide.js', "application/javascript");
+}
+
 function angularTouch(response){
     getData(response,'node_modules/angular-touch','angular-touch.js', "application/javascript");
 }
@@ -63,6 +67,7 @@ function error404(response,pathname){
 exports.iniciar = iniciar;
 exports.socket_connect=socket_connect;
 exports.mobilesDetect=mobilesDetect;
+exports.formSlide=formSlide;
 exports.angularTouch=angularTouch;
 exports.stylesheets=stylesheets;
 exports.angularRoute=angularRoute;
