@@ -1,10 +1,342 @@
-<div ng-controller="ctrlFormSlide">
+<div ng-controller="ctrlFormSlide" class="slides">
     <form-slide>
-        <item-form nameItem="slide1">
-           slide1
+        <item-form name-item="slide1">
+           <div class="background initialslide ">
+               <div class="center_content">
+                 <h1 class="title">Slide Remote</h1>
+                 <h2 class="title stand_out_white">Arquitectura Cliente Servidor</h2>
+                 <h4 class="name">John Darwin Morales González</h4>
+               </div>
+           </div>
         </item-form>
-         <item-form nameItem="slide2">
-           slide2
+        <item-form name-item="tecnologias_aplicadas">
+           <div class="background">
+                 <h1 class="title stand_out_white">Tecnologias aplicadas</h1>
+                 <div class="content">
+                     <div>
+                     <p class="left">
+                        Del lado del Backend:
+                     </p>
+                     <ul>
+                         <li>
+                         <strong>NodeJS</strong> 
+                         <span class="small">(Librarias Estandares: http,fs,path,url)</span>
+                         </li>
+                         <li>Socket.IO <span class="small">(webSockets)</span></li>
+                     </ul>
+                     </div>
+                     <div>
+                     <p class="left">
+                        Del lado del Frontend:
+                     </p>
+                     <ul>
+                         <li>HTML5</li>
+                         <li>Compass (CSS)</li>
+                         <li>AngularJS(Javascript)</li>
+                         <li>socket.IO <span class="small">(webSockets)</span></li>
+                     </ul>
+                     </div>
+                     <div class="center">
+                      <strong>NPM (Node Package Manager)</strong>
+                     </div>
+                 </div>
+           </div>
         </item-form>
+        <item-form name-item="nodeJS">
+           <div class="background">
+                 <h1 class="title stand_out_white">Que es NodeJS?</h1>
+                 <div class="content">
+                     <p>
+                      Entorno de programación <strong>orientado a eventos</strong> basado en el 
+                      lenguaje <strong>javascript</strong>,pensado para construir 
+                      programas de red rápidos y escalables, con modelos de 
+                      <strong>entrada/salida sin bloqueo</strong> que 
+                      hacen liviano y eficiente el entorno. Perfecto para 
+                      aplicaciones en <strong>tiempo real</strong> y de datos intensivos.
+                     </p>
+                     <div class="content_img center">
+                         <img class="logo_node1" src="https://blog.openshift.com/wp-content/uploads/imported/nodejs.png">
+                     </div>
+                 </div>
+           </div>
+        </item-form>
+        <item-form name-item="orientado_eventos">
+         
+           <div class="background">
+                 <h1 class="title stand_out_white">Orientado a eventos</h1>
+                 <div class="content">
+                     <p>
+                         Mientras en la programación secuencial (o estructurada) 
+                         es el programador el que define cuál va a ser 
+                         el flujo del programa, en la programación dirigida 
+                         por eventos será el propio usuario quien los determine.
+                     </p>
+                     <p class="left">
+                         Lenguajes que usan el paradigma(estilo):
+                     </p>
+                     <ul>
+                         <li>Java</li>
+                         <li>VisualBasic</li>
+                         <li><strong>Javascript</strong></li>
+                     </ul>
+                     
+                 </div>
+           </div>
+        </item-form>
+        <item-form name-item="javascript_intro">
+           <div class="background">
+                 <h1 class="title stand_out_white">Javascript</h1>
+                 <div class="content">
+                     <p>
+                        Es un lenguaje conocido por su uso en los navegadores, el cual permite
+                        una interación con el usuario, control del navegador, comunicación asiconcrónica 
+                        y modificación del contenido que esta siendo mostrado.
+                     </p>
+                     <p class="left">
+                         Se clasifica como un lenguaje script basado en prototipos(estilo de programación orientada a objetos) y es multiparadigma.
+                     </p>
+                 </div>
+           </div>
+        </item-form>
+        <item-form name-item="javascript_intro_1">
+           <div class="background">
+                 <div class="content">
+                     <div class="content_img center">
+                         <img class="logoJS" src="http://exortech.github.io/presentations/promise_of_node/img/javascript-logo.png">
+                     </div>
+                     <p class="center">
+                       Por qué <strong>NodeJS</strong> usa <strong>Javascript(JS)</strong> del lado del servidor?
+                     </p>
+                     <p class="cite_ryandahl">
+                       <cite>
+                       "JavaScript has certain characteristics that make it very 
+                       different than other dynamic languages, <strong>namely that it has 
+                       no concept of threads</strong>. Its model of concurrency is completely <strong>based around events</strong>"
+                       </cite>
+                       <br>
+                       <p class="right"><i>-Ryan Dahl-<small>(creador de NodeJS)</small></i></p>
+                     </p>
+                     
+                 </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_and_javascript1">
+           <div class="background">
+                 <div class="content">
+                     <p class="left">
+                         Antes de saber como trabaja NodeJS miremos, que lo conforma:
+                     </p>
+                     <div class="content_img center">
+                         <img class="stack_nodeJS" src="../static/core_nodeJS.png">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+         <item-form name-item="node_and_javascript1">
+              <div class="background">
+               <h1 class="title stand_out_white">NPM</h1>
+                 <div class="content">
+                     <p>
+                        npm es manejador de paquetes para javascript, y que trae por defecto NodeJS. 
+                        Es el responsable de manejar las dependencias para Node y permite a los usuarios 
+                        instalar apliaciones ya disponibles registradas en npm.
+                     </p>
+                     <p class="left">
+                         Ejemplos de modulos/paquetes
+                     </p>
+                     <ul>
+                         <li><strong>Socket.IO</strong></li>
+                         <li>Express</li>
+                         <li>Bower</li>
+                     </ul>
+                     
+                 </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_v8">
+              <div class="background">
+               <h1 class="title stand_out_white">motor V8</h1>
+                 <div class="content">
+                     <p>
+                      Es el motor open-source escrito en C++ desarrollado por Google y utilizado en el navegador Google Chrome  
+                      Es el encargado de compilar Javascript. Este motor se puede <strong>utilizar independientemente</strong>,
+                      incluso ser embebido en aplicaciones de C++.
+                     </p>
+                     <p>
+                     <strong><a href="https://nodejs.org/api/addons.html" target="_blank">Incluso se puede correr C++ dentro de una aplicación de nodeJS</a></strong> 
+                     </p>
+                 </div>
+           </div>
+        </item-form>
+        
+       <item-form name-item="node_Libuv">
+              <div class="background">
+               <h1 class="title stand_out_white">Libuv</h1>
+                 <div class="content">
+                     <p>
+                      Libuv es una libreria escrita en C++, responsable de la asincronia de las operaciones
+                      I/O y el principal bucle de eventos <strong>(event-loop)</strong>. Esta compuesta por 
+                      un <strong>thread-pool</strong> de tamaño fijo desde el cual se alojan las operaciones de entrada y salida.
+                     </p>
+                     <div class="content_img center">
+                         <img src="http://kunkle.org/nodejs-explained-pres/images/event-loop.png">
+                     </div>
+                 </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_and_javascript2">
+           <div class="background">
+                 <h1 class="title stand_out_white">como trabaja <strong>NodeJS?</strong></h1>
+                 <div class="content">
+                     <p class="left">
+                         Javascript del lado del cliente fue diseñado para ser usado 
+                         como bucle de eventos y se aplicó la misma idea del lado del servidor:
+                     </p>
+                     <div class="content_img center">
+                         <img src="http://i.blogs.es/cdb844/650_1000_nodethreads3-1/450_1000.png">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_and_javascript3">
+           <div class="background">
+                <div class="content">
+                     <p class="left">
+                         Las tareas asicronas: 
+                     </p>
+                     <div class="content_img center">
+                         <img src="http://i.blogs.es/14d1df/650_1000_nodethreads4/650_1200.png">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_and_javascript4">
+           <div class="background">
+                <div class="content">
+                     <p class="left">
+                         Los callbacks: 
+                     </p>
+                     <div class="content_img center">
+                         <img src="http://i.blogs.es/d49f9e/650_1000_eventos/450_1000.gif">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_zoomOut">
+           <div class="background">
+                <h1 class="title stand_out_white">Un vista general</h1>
+                <div class="content">
+                     <div class="content_img center">
+                         <img src="http://www.qidiantong.com/uploads/allimg/141113/220Q2DT-2.PNG">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_performace">
+           <div class="background">
+                <h1 class="title stand_out_white">Apache vs NodeJS</h1>
+                <div class="content">
+                     <i>
+                         Apache crea un nuevo hilo por cada conexión cliente-servidor, 
+                         mientras que NodeJS solo uno y usa un hilo, y una cantidad 
+                         de hilos fijo por cada por cada operación bloqueante (I/O). 
+                     </i>
+                     <div class="content_img center">
+                         <img src="http://www.rmunoz.net/static/img/articles/apache-benchmark.png">
+                     </div>
+                     <i>
+                        -En un sistema UNIX usando nodeJS alrededor de 65.000 conexiones.(pero depende de varios factores)<br>
+                     </i>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_isGood">
+           <div class="background">
+                <h1 class="title stand_out_white">Esto es Genial para aplicaciones de <strong>tiempo real</strong>!!!</h1>
+                <div class="content">
+                     <div class="content_img center">
+                         <img src="http://media.topito.com/wp-content/uploads/2013/01/code-26.gif">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_examplesWebSockets">
+           <div class="background">
+                <h1 class="title stand_out_white">Real Time Gaming</h1>
+                <div class="content">
+                    
+                     <div class="content_video center">
+                         <iframe src="https://www.youtube.com/embed/7AvTl9aU5D8" frameborder="0" allowfullscreen>
+                         </iframe>
+                     </div>
+                     
+                     <a href="https://cloud.google.com/developers/articles/real-time-gaming-with-node-js-websocket-on-gcp/" target="_blank">
+                         mas información sobre esto.
+                     </a>
+                     
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_webSockets">
+           <div class="background">
+                <h1 class="title stand_out_white">La Web y las Peticiones al servidor</h1>
+                <div class="content">
+                     <div class="content_img center">
+                         <img src="http://www.rmunoz.net/static/img/articles/ajax-vs-comet.png">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+
+        <item-form name-item="node_webSockets">
+           <div class="background">
+                <h1 class="title stand_out_white">WebSockets</h1>
+                <div class="content">
+                    <p>
+                        Crean una conexion TCP al servidor, y mantiene alli tanto como se necesite.
+                        El servidor(nodeJS) o cliente(browser) puede cerrar.Cliente 
+                        verifica através de un saludo HTTP mediante connect, si es existoso, 
+                        entonces comienzan a intercambiar información.   
+                    </p>
+                    <p>
+                       Actualmente la W3C estandarizo el uso de los websockets sobre HTML5.
+                    </p>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_webSockets2">
+           <div class="background">
+                <h1 class="title stand_out_white">WebSockets</h1>
+                <div class="content">
+                     <div class="content_img center">
+                         <img src="https://www.pubnub.com/static/images/get-started/websockets_guides.png">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
+        <item-form name-item="node_gracias">
+           <div class="background ">
+                <h1 class="title stand_out_white">Gracias!!!</h1>
+                <div class="content">
+                     <div class="content_img center">
+                         <img src="https://nodejs.org/images/logo.svg">
+                     </div>
+                </div>
+           </div>
+        </item-form>
+        
     </form-slide>
 </div>

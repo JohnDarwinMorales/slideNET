@@ -32,7 +32,7 @@ function socket_connect(response){
 }
 
 function mobilesDetect(response){
-    getData(response,'client/js','mobilesDetect.js', "application/javascript");
+    getData(response,'client/js','mobile-detect.min.js', "application/javascript");
 }
 
 function formSlide(response){
@@ -47,20 +47,19 @@ function angularRoute(response){
     getData(response,'node_modules/angular-route','angular-route.js', "application/javascript");
 }
 
-
 function stylesheets(response){
   getData(response,'client/css/stylesheets','mean_style_client.css', "text/css");
 }
 
 
-
-
+function coreNode_img(response){
+  getData(response,'client/static','core_nodeJS.png', "image/png");
+}
 
 function error404(response,pathname){
     console.log(" error 404 no found path"+ pathname);
     getData(response,'client','error_404.html');
 }
-
 
 
 
@@ -70,6 +69,7 @@ exports.mobilesDetect=mobilesDetect;
 exports.formSlide=formSlide;
 exports.angularTouch=angularTouch;
 exports.stylesheets=stylesheets;
+exports.coreNode_img=coreNode_img;
 exports.angularRoute=angularRoute;
 exports.view_login=view_login;
 exports.view_slide=view_slide;

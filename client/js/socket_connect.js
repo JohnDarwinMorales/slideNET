@@ -100,6 +100,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
         $scope.isMobile=mobile.getIsMobile();
         $scope.codeMobile="";
         
+        
         //$scope.link_button="/#/";
 
         $scope.messageForDevice= ( $scope.isMobile )? 'Choose your Mobile device code' : 'Enter Mobile device code';
@@ -126,23 +127,33 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
             $scope.user.correct=msg.correct;
             $scope.user.send_message=msg.send_message;
             
+            console.log($scope.isMobile);
              if($scope.isMobile){
                 if(msg.correct){
                     $scope.messageButtonSend = 'Start to Slide';
-                   }
+                  }
                 }else{
                   if(msg.correct){
                       $scope.user.startToSlide=msg.startToSlide;
                       $scope.user.send_message="Waiting to "+ msg.creator+ " to start...";
                       $scope.clients=msg.clients;
+                   }else{
+                      $scope.user.send_message="No exist Room";
                    }
                 }
         });
         
-        socket.on('init_slideToStart',function(msg){
+        socket.on('init_slideToStart_users',function(msg){// Esta acción la emite el UserExponent para todos los usersGuests (broadcast)
             if(msg.startToSlide){
                $scope.user.stateSlide=msg;
                window.location ="/#/templates/slides/";
+            }
+        });
+        
+        socket.on('init_slideToStart_client',function(msg){ // Esta acción la emite el UserExponent para el mismo (emit)
+            if(msg.startToSlide){
+               $scope.user.stateSlide=msg;
+               //console.log(msg);
             }
         });
         
@@ -164,6 +175,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
         $scope.sendCode=function(){
             if($scope.user.nickname!='' && $scope.user.codeMobile !="" ){
                 if(!$scope.user.correct){
+                    //alert($scope.user.typedevice);
                     socket.emit('connected',$scope.user);
                 }else{
                     if($scope.isMobile && $scope.user.correct ){
@@ -182,22 +194,33 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
     })
     
     
-    .controller('CtrlSlide',function($scope,socket){
+    .controller('CtrlSlide',function($scope,$rootScope,socket){
        // aca se puede manipular los sockets normalmente
        $scope.user=$scope.$parent.user;
+       $scope.room=$scope.user.stateSlide;
        $scope.isMobile=$scope.$parent.isMobile;
+       
+        socket.on('change_currentIndex_users',function(msg){
+            if(msg.startToSlide){
+               $scope.user.stateSlide.currentIndex= msg.currentIndex;
+            }
+        }); 
+       
 
-       if($scope.user.correct){
+       if($scope.room.startToSlide){
           console.log($scope.user);
            
-          if($scope.isMobile){
-             
-          }else{
-               
+         if($scope.isMobile){
+            $scope.$watch(function(){
+                return  $scope.user.stateSlide.currentIndex;
+            },function(newVal){
+               $scope.user.stateSlide.currentIndex=newVal;
+               socket.emit('change_currentIndex',$scope.user);
+            });
+            
           }
-           
        }else{
-          window.location="/#/";
+         window.location="/#/";
        }
        
     });

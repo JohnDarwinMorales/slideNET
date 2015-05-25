@@ -1,0 +1,40 @@
+@mixin viewport-calc-height($size,$height,$width){
+ height: #{$size}vh;
+ width: calc(#{$size}vh * #{$width}/#{$height});
+}
+
+@mixin viewport-calc-width($size,$height,$width){
+ width: #{$size}vw;
+ height: calc(#{$size}vw * #{$height}/#{$width});
+}
+
+$screen_xs:200px;
+$screen_sm:350px;
+$screen_md:600px;
+
+@mixin adjust_content($size,$height,$width) {
+    
+@media screen and (orientation: portrait) {
+     @include viewport-calc-width($size, $height, $width);
+}
+
+/* Landscape */
+@media screen and (orientation: landscape) { 
+  @include viewport-calc-height($size, $height, $width);
+}
+
+@media only screen and (orientation: portrait) {
+  @include viewport-calc-width($size, $height, $width);
+}
+
+/* Landscape */
+@media only screen and (orientation: landscape) { 
+  @include viewport-calc-height($size, $height, $width);
+}
+  
+@media screen and (max-height: $screen_sm) {
+    @include viewport-calc-height($size, $height, $width);
+}
+  /*********excepciones**************/
+
+}

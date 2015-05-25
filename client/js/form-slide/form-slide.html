@@ -2,7 +2,7 @@
 
 <div class="nav">
         <ul class="dots">
-            <li class="btn dot" ng-repeat="slide in list" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">
+            <li class="btn fa" ng-repeat="slide in list" ng-class="{'fa-circle':isCurrentSlideIndex($index),'fa-circle-o':!isCurrentSlideIndex($index) }" ng-click="setCurrentSlideIndex($index);">
                 <span>{{$index+1}}</a>
             </li>
         </ul>
