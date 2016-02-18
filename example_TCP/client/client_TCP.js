@@ -8,7 +8,6 @@ function sendMsg(action,data){
   client.write(action+"="+data);
 }
 
-
 var  connection=function(){ 
   console.log('connected to server!');
   var  person=new user_module.user();
@@ -22,9 +21,7 @@ var client = net.connect({port: 8124},connection);//'connect' listener
 
 client.on('data', function(data) {
   console.log(data.toString());
- 
   i++;
- 
   setTimeout(function(){
      client.write('hello=' +i);
   },500);
