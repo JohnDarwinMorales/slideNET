@@ -7,7 +7,7 @@ function connectGuestUser(socket, msg){
     if (roomClient.existRoom(msg.codeMobile)) {
                 msg.correct =true;
                 var room = roomClient.getRoom(msg.codeMobile);
-                var user= new client.client(msg.nickname,socket.id,msg.codeMobile);
+                var user = new client.client(msg.nickname,socket.id,msg.codeMobile);
                 
                 room.clients.push(user);
                 msg.send_message = "";
@@ -24,7 +24,7 @@ function connectGuestUser(socket, msg){
             msg.send_message = " No exist this mobile code.";
        }
        
-       
+      
         
      if (roomClient.existRoom(msg.codeMobile)) {
          if(room.stateSlide.startToSlide){

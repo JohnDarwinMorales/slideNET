@@ -2,7 +2,7 @@ angular.module('appFormSlide',['ngTouch'])
 
     .controller('ctrlFormSlide', function ($scope,$rootScope,$attrs) {
         
-        var list= $scope.list=angular.isDefined($attrs.listItems) ? $scope.$eval($attrs.listItems) : [] ;
+        var list= $scope.list =angular.isDefined($attrs.listItems) ? $scope.$eval($attrs.listItems) : [] ;
 
         $scope.direction = 'left';
         $scope.currentIndex = 0;
@@ -86,7 +86,6 @@ angular.module('appFormSlide',['ngTouch'])
             }
         }
     })
-
 
     .directive('itemForm', function() {
         return {

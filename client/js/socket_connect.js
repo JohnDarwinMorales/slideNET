@@ -173,6 +173,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
         
         
         $scope.sendCode=function(){
+            
             if($scope.user.nickname!='' && $scope.user.codeMobile !="" ){
                 if(!$scope.user.correct){
                     //alert($scope.user.typedevice);
@@ -211,6 +212,7 @@ angular.module('slideRemoteApp',['ngTouch','ngRoute','appFormSlide'])
           console.log($scope.user);
            
          if($scope.isMobile){
+             
             $scope.$watch(function(){
                 return  $scope.user.stateSlide.currentIndex;
             },function(newVal){

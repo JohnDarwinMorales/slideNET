@@ -13,9 +13,9 @@ function client(name,id,roomClient){
 }
 
 function slide(title){
-   this.tilte=title;
-   this.currentIndex=0;
-   this.startToSlide=false;
+   this.tilte = title;
+   this.currentIndex = 0;
+   this.startToSlide =false;
 }
 
 function room(roomName,id,socket,creator){
@@ -24,7 +24,7 @@ function room(roomName,id,socket,creator){
     this.roomName=roomName;
     this.clients=[];
     this.creator=creator;
-    this.stateSlide=new slide("nodeJS");
+    this.stateSlide = new slide("nodeJS");
 }
 
 
